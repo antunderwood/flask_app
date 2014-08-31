@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+
 app = Flask(__name__)
 
 # Configurations
@@ -9,13 +10,13 @@ app.config.from_object('config')
 def not_found(error):
     return render_template('404.html'), 404
 
-# Import a module / component using its blueprint handler variable (views1)
-from app.views1.controllers import views1
-from app.views2.controllers import views2
+# Import a module / component using its blueprint handler variable (customers)
+from app.customers.controllers import customers
+from app.vpgu.controllers import vpgu
 
 # Register blueprint(s)
-app.register_blueprint(views1)
-app.register_blueprint(views2)
+app.register_blueprint(customers)
+app.register_blueprint(vpgu)
 
 @app.route('/')
 def index():
