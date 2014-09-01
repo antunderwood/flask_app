@@ -1,6 +1,8 @@
+PROTECT_PAGES = False
 # Import flask dependencies
 from flask import Blueprint, request, render_template, flash, g, session, redirect, url_for
 from flask.ext.httpauth import HTTPDigestAuth
+from flask.ext.conditional import conditional
 
 # authentication stuff
 auth = HTTPDigestAuth()
@@ -21,6 +23,6 @@ vpgu = Blueprint('vpgu', __name__, url_prefix='/vpgu', template_folder='template
 
 # Set the route and accepted methods
 @vpgu.route('/page1')
-@auth.login_required
+@conditional(auth.login_required, PROTECT_PAGES)
 def page1():
 	return render_template('vpgu/page1.html')
