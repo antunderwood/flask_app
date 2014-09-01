@@ -1,7 +1,7 @@
 Requires following python steps
 
   * virtualenv env
-  * env/bin/pip install Flask Flask-HTTPAuth
+  * env/bin/pip install Flask Flask-HTTPAuth Flask-Script
 
 Add the following to apache2.conf
 
