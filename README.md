@@ -1,3 +1,8 @@
+Requires following python steps
+
+  * virtualenv env
+  * env/bin/pip install Flask Flask-HTTPAuth
+
 Add the following to apache2.conf
 
 ```apache
